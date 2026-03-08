@@ -1,0 +1,145 @@
+%% preamble.tex — shared packages and macros
+%% ─────────────────────────────────────────────────────────────────────────────
+
+
+%% ── Core packages ────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}        % UTF-8 source encoding
+\usepackage{graphicx}              % figures (\includegraphics)
+\usepackage{hyperref}              % hyperlinks in PDF
+\usepackage{xspace}                % smart spacing after macros
+
+
+%% ── Tables ───────────────────────────────────────────────────────────────────
+\usepackage{booktabs}              % \toprule, \midrule, \bottomrule
+\usepackage{multirow}              % multi-row table cells
+\usepackage{diagbox}               % diagonal box in table headers
+\usepackage[flushleft]{threeparttable} % table notes
+
+
+%% ── Figures ──────────────────────────────────────────────────────────────────
+\usepackage[caption=false]{subfig} % sub-figures
+
+
+%% ── Code listings ────────────────────────────────────────────────────────────
+\usepackage{listings}
+\usepackage[htt]{hyphenat}         % hyphenation in \texttt
+
+% YAML language definition for listings
+\newcommand\YAMLcolonstyle{\color{red}\mdseries}
+\newcommand\YAMLkeystyle{\color{black}\bfseries}
+\newcommand\YAMLvaluestyle{\color{blue}\mdseries}
+
+\makeatletter
+\newcommand\language@yaml{yaml}
+\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter{\language@yaml}
+{
+  keywords={true,false,null,y,n},
+  keywordstyle=\color{darkgray}\bfseries,
+  basicstyle=\YAMLkeystyle,
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\YAMLvaluestyle\ttfamily,
+  moredelim=[l][\color{orange}]{\&},
+  moredelim=[l][\color{magenta}]{*},
+  morestring=[b]',
+  morestring=[b]",
+  literate = {---}{{\ProcessThreeDashes}}3
+             {\ -\ }{{\mdseries\ -\ }}3,
+}
+\makeatother
+
+
+%% ── Drawing / diagrams ───────────────────────────────────────────────────────
+\usepackage{tikz}
+\usepackage[framemethod=TikZ]{mdframed}
+
+
+%% ── Colors ───────────────────────────────────────────────────────────────────
+\usepackage{color, colortbl}
+\usepackage{pifont}
+\definecolor{lightgray}{gray}{0.9}
+
+
+%% ── Misc formatting ──────────────────────────────────────────────────────────
+\usepackage{pmboxdraw}             % box-drawing characters
+
+
+%% ── To-do / review notes ─────────────────────────────────────────────────────
+%% Swap the two \usepackage lines to hide all notes in the final version.
+\usepackage[]{todonotes}           % show notes
+% \usepackage[disable]{todonotes}  % hide notes
+
+% Author notes — add/rename as needed
+\newcommand{\authorA}[1]{\todo[inline,color=green!40]{\footnotesize{AUTHOR A: #1}}}
+\newcommand{\authorB}[1]{\todo[inline,color=red!40]{\footnotesize{AUTHOR B: #1}}}
+\newcommand{\authorC}[1]{\todo[inline,color=blue!40]{\footnotesize{AUTHOR C: #1}}}
+
+% Reviewer notes (for revision rounds)
+\newcommand{\reviewerOne}[1]{\todo[inline,color=olive!40]{\footnotesize{Reviewer 1: #1}}}
+\newcommand{\reviewerTwo}[1]{\todo[inline,color=orange!40]{\footnotesize{Reviewer 2: #1}}}
+\newcommand{\reviewerThree}[1]{\todo[inline,color=teal!40]{\footnotesize{Reviewer 3: #1}}}
+
+% Review-response macros
+\newcommand{\review}[1]{\par\noindent{\color{darkgray}{\textbf{Reviewer comment:} #1}}\smallskip}
+\newcommand{\reply}[1]{\par\noindent{\color{blue}{\textbf{Authors' response:} #1}}\bigskip}
+\newcommand{\reviewer}[2]{\todo[color=red!40, inline]{\footnotesize{\##1: #2}}}
+
+
+%% ── Cross-reference shorthands ───────────────────────────────────────────────
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\listing}[1]{Listing~\ref{#1}}
+\newcommand{\tab}[1]{Table~\ref{#1}}
+\newcommand{\sect}[1]{Section~\ref{#1}}
+
+
+%% ── Latin / English abbreviations ────────────────────────────────────────────
+\newcommand{\etal}{et al.\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+
+
+%% ── Change-tracking macros ───────────────────────────────────────────────────
+%% Use \changed{} to highlight revised text, or disable by making it a no-op.
+\newcommand{\changed}[1]{#1}
+% \newcommand{\changed}[1]{{\color{red}#1}}
+\newcommand{\changedTo}[1]{{\color{red}#1}}
+
+
+%% ── Custom callout box ───────────────────────────────────────────────────────
+\global\mdfdefinestyle{takeawaybox}{%
+  linewidth=1pt, linecolor=lightgray!80,
+  backgroundcolor=lightgray!20,
+  innerleftmargin=6pt, innerrightmargin=6pt,
+  innertopmargin=4pt,  innerbottommargin=4pt,
+  nobreak=true, roundcorner=5pt}
+\newenvironment{takeawaybox}
+  {\begin{mdframed}[style=takeawaybox]\emph{Takeaways.}}
+  {\end{mdframed}\smallskip}
+
+
+%% ── Inline quote helper ──────────────────────────────────────────────────────
+\newcommand{\say}[1]{``\emph{#1}''}
+
+
+%% ── Domain-specific shorthands (edit / remove as needed) ─────────────────────
+% Tools / platforms
+\newcommand{\github}{GitHub\xspace}
+\newcommand{\gitlab}{GitLab\xspace}
+\newcommand{\bitbucket}{BitBucket\xspace}
+\newcommand{\git}{git\xspace}
+
+% Languages / package managers
+\newcommand{\python}{Python\xspace}
+\newcommand{\js}{JavaScript\xspace}
+\newcommand{\java}{Java\xspace}
+\newcommand{\npm}{npm\xspace}
+
+% Operating systems
+\newcommand{\macos}{macOS\xspace}
+
+% BibTeX logo
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}

@@ -1,0 +1,61 @@
+# ── LaTeX build artifacts ─────────────────────────────────────────────────────
+*.aux
+*.bbl
+*.blg
+*.fls
+*.out
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.acn
+*.acr
+*.alg
+*.glg
+*.ist
+*.lol
+
+# Generated PDF outputs (keep source, not built output)
+*.pdf
+
+# ── make.py build artifacts ───────────────────────────────────────────────────
+output/
+final.zip
+
+# ── macOS filesystem noise ────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX/
+
+# ── Windows filesystem noise ──────────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Editor / IDE files ────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.texpadtmp/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv/
+
+# ── Overleaf sync ─────────────────────────────────────────────────────────────
+.overleaf/

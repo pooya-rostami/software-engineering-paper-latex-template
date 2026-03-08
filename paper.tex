@@ -1,0 +1,60 @@
+\documentclass[preprint]{elsarticle}
+
+\input{preamble}
+
+\journal{Journal Name Here}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Your Paper Title Here}
+
+% Authors — add or remove as needed
+\author[1]{First Author}
+\ead{first.author@institution.edu}
+\author[1]{Second Author}
+\ead{second.author@institution.edu}
+
+% Footnotes for author roles (optional)
+% \fntext[label]{Role or funding note}
+
+\affiliation[1]{organization={Your Institution},
+        city={City},
+        country={Country}}
+
+
+\begin{abstract}
+Your abstract goes here. Summarize the motivation, methods, results, and conclusions.
+\end{abstract}
+
+\begin{keyword}
+keyword one \sep keyword two \sep keyword three \sep keyword four
+\end{keyword}
+
+\end{frontmatter}
+
+
+%% ── Sections ─────────────────────────────────────────────────────────────────
+\input{input/0_introduction}
+\input{input/1_related_work}
+\input{input/2_methodology}
+\input{input/3_results}
+\input{input/4_discussion}
+\input{input/5_threats}
+\input{input/6_conclusion}
+
+% Uncomment to include an appendix:
+% \input{input/appendix}
+
+
+%% ── Acknowledgments ──────────────────────────────────────────────────────────
+\section*{Acknowledgments}
+
+Acknowledgments go here.
+
+
+%% ── Bibliography ─────────────────────────────────────────────────────────────
+\bibliographystyle{elsarticle-num}
+\bibliography{biblio}
+
+\end{document}
