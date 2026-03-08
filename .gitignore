@@ -21,9 +21,11 @@
 *.glg
 *.ist
 *.lol
+*.log
+*.spl
 
 # Generated PDF outputs (keep source, not built output)
-*.pdf
+paper.pdf
 
 # ── make.py build artifacts ───────────────────────────────────────────────────
 output/

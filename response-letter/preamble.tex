@@ -1,0 +1,67 @@
+%% preamble.tex — packages and macros for the reviewer response letter
+%% Only what a response document actually needs; heavier paper macros are omitted.
+%% ─────────────────────────────────────────────────────────────────────────────
+
+
+%% ── Core packages ────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage{xspace}
+\usepackage{hyperref}
+\usepackage{color}
+
+
+%% ── To-do / author notes ─────────────────────────────────────────────────────
+%% Swap the two lines to hide all notes in the submitted version.
+\usepackage[]{todonotes}
+% \usepackage[disable]{todonotes}
+
+% Author notes — rename / add as needed
+\newcommand{\authorA}[1]{\todo[inline,color=green!40]{\footnotesize{AUTHOR A: #1}}}
+\newcommand{\authorB}[1]{\todo[inline,color=red!40]{\footnotesize{AUTHOR B: #1}}}
+\newcommand{\authorC}[1]{\todo[inline,color=blue!40]{\footnotesize{AUTHOR C: #1}}}
+
+
+%% ── Core response macros ─────────────────────────────────────────────────────
+
+% Typeset a reviewer comment in dark gray
+\newcommand{\review}[1]{%
+    \par\noindent{\color{darkgray}{\textbf{Reviewer comment:} #1}}\smallskip}
+
+% Typeset the authors' response in blue
+\newcommand{\reply}[1]{%
+    \par\noindent{\color{blue}{\textbf{Authors' response:} #1}}\bigskip}
+
+% Inline reviewer note (for internal use during drafting)
+\newcommand{\reviewer}[2]{%
+    \todo[color=red!40, inline]{\footnotesize{\##1: #2}}}
+
+
+%% ── Change-tracking ──────────────────────────────────────────────────────────
+%% \changed{} marks text revised in the manuscript.
+%% Switch to the colour variant when building the revision to make diffs visible.
+\newcommand{\changed}[1]{#1}
+% \newcommand{\changed}[1]{{\color{red}#1}}
+
+%% \changedTo{} always renders in red (for text rewritten from scratch).
+\newcommand{\changedTo}[1]{{\color{red}#1}}
+
+
+%% ── Inline quote helper ──────────────────────────────────────────────────────
+\newcommand{\say}[1]{``\emph{#1}''}
+
+
+%% ── Cross-reference shorthands ───────────────────────────────────────────────
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\tab}[1]{Table~\ref{#1}}
+\newcommand{\sect}[1]{Section~\ref{#1}}
+
+
+%% ── Latin abbreviations ──────────────────────────────────────────────────────
+\newcommand{\etal}{et al.\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+
+
+%% ── Domain shorthands (keep in sync with paper/preamble.tex) ─────────────────
+%% Add or remove to match your paper's preamble so \entity{} calls work here too.
+\newcommand{\entity}[1]{\textsf{#1}\xspace}
