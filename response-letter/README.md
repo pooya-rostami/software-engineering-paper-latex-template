@@ -6,7 +6,7 @@ Lives as a self-contained sub-folder inside the paper repository.
 ## Files
 
 ```
-response/
+response-letter/
 ├── response.tex   ← Main document: editor + per-reviewer sections
 ├── preamble.tex   ← Packages and macros (response-specific, minimal)
 ├── make.py        ← Builds a self-contained response-final.zip
