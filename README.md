@@ -8,7 +8,7 @@ A clean, modular template for writing academic papers with `elsarticle` (Elsevie
 .
 ├── paper.tex          ← Root document (title, authors, abstract, section order)
 ├── preamble.tex       ← All packages, macros, and style definitions
-├── biblio.bib         ← BibTeX bibliography database (shared with response/)
+├── biblio.bib         ← BibTeX bibliography database (shared with response-letter/)
 ├── make.py            ← Build script: produces a self-contained submission ZIP
 │
 ├── input/             ← One .tex file per paper section
@@ -94,18 +94,18 @@ The `response-letter/` folder is a self-contained sub-folder for the revision ro
 ### Compile
 
 ```bash
-cd response
+cd response-letter
 latexmk -pdf response.tex
 ```
 
 ### Build a response archive
 
 ```bash
-cd response
+cd response-letter
 python make.py
 ```
 
-This produces `response-final.zip` with a flattened `response.tex` and a copy of `biblio.bib` sourced from the parent folder. Adjust `BIBLIO_PATH` at the top of `response/make.py` if needed.
+This produces `response-final.zip` with a flattened `response.tex` and a copy of `biblio.bib` sourced from the parent folder. Adjust `BIBLIO_PATH` at the top of `response-letter/make.py` if needed.
 
 ### Key macros
 
@@ -131,7 +131,7 @@ This produces `response-final.zip` with a flattened `response.tex` and a copy of
 
 Add a `\section*{Reviewer 3}` block by copying the Reviewer 2 block if needed.
 
-To **show all changes in red** when submitting the revision, uncomment the colour variant of `\changed{}` in `response/preamble.tex`:
+To **show all changes in red** when submitting the revision, uncomment the colour variant of `\changed{}` in `response-letter/preamble.tex`:
 
 ```latex
 % \newcommand{\changed}[1]{#1}
